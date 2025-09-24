@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "item_labels",
+  "version": "${version}",
+  "name": "Label My Items",
+  "description": "Adds item labels, which can label your items",
+  "authors": [],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/item_labels/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "dev.bscit.item_labels.client.MainClient"
+    ],
+    "main": [
+      "dev.bscit.item_labels.Main"
+    ]
+  },
+  "mixins": [
+    "item_labels.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
