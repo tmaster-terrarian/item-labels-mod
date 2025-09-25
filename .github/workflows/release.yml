@@ -12,6 +12,6 @@ jobs:
       options: --user root
     steps:
       - uses: actions/checkout@v4
-      - run: ./gradlew build publishMods
+      - run: ./gradlew build publishMods --stacktrace
         env:
           MODRINTH_API_KEY: ${{ secrets.MODRINTH_API_KEY }}

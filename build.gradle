@@ -50,10 +50,6 @@ stonecutter {
 }
 
 loom {
-    if (stonecutter.eval(stonecutter.current.version, "<1.21.6")) {
-        accessWidenerPath = file("src/main/resources/item_labels.accesswidener")
-    }
-
     runConfigs.all {
         ideConfigGenerated(true) // Run configurations are not created for subprojects by default
         runDir = "../../run" // Use a shared run folder and create separate worlds
@@ -118,7 +114,6 @@ publishMods {
 
     modrinth {
         accessToken = providers.environmentVariable("MODRINTH_API_KEY")
-        projectDescription = providers.fileContents(layout.projectDirectory.file("README.md")).asText
         projectId = "iCpzHUeq"
         minecraftVersionRange {
             start = project.minecraft_version
