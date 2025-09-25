@@ -23,6 +23,9 @@ import net.minecraft.text.TextColor;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.collection.DefaultedList;
 
+//? if >=1.21.5
+/*import net.minecraft.component.ComponentsAccess;*/
+
 public class LabelsComponent implements TooltipAppender
 {
     private static final int MAX_LABELS = 256;
@@ -200,7 +203,7 @@ public class LabelsComponent implements TooltipAppender
     }
 
     @Override
-    public void appendTooltip(TooltipContext context, Consumer<Text> tooltipConsumer, TooltipType type)
+    public void appendTooltip(TooltipContext context, Consumer<Text> tooltipConsumer, TooltipType type /*? if >=1.21.5 {*//*, ComponentsAccess componentsAccess*//*?}*/)
     {
         if(isEmpty())
             return;

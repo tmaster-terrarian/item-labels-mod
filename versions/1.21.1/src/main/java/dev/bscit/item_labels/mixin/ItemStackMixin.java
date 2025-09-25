@@ -22,7 +22,7 @@ import java.util.function.Consumer;
 public class ItemStackMixin
 {
     @Inject(method = "getTooltip", locals = LocalCapture.CAPTURE_FAILSOFT, at = @At(value = "INVOKE", ordinal = 0, target = "net/minecraft/item/ItemStack.appendTooltip (Lnet/minecraft/component/ComponentType;Lnet/minecraft/item/Item$TooltipContext;Ljava/util/function/Consumer;Lnet/minecraft/item/tooltip/TooltipType;)V"))
-    public void onGetTooltip(Item.TooltipContext context, @Nullable PlayerEntity player, TooltipType type, CallbackInfoReturnable<List<Text>> cir, /*? if >=1.21.4 {*//*boolean bl,*//*?}*/ List<Text> list, /*? if <1.21.2 {*/MutableText mutableText,/*?}*/ Consumer<Text> consumer)
+    public void onGetTooltip(Item.TooltipContext context, @Nullable PlayerEntity player, TooltipType type, CallbackInfoReturnable<List<Text>> cir, List<Text> list, MutableText mutableText, Consumer<Text> consumer)
     {
         ItemStack thisObject = (ItemStack)(Object)this;
 
