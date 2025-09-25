@@ -18,8 +18,7 @@ public class ItemLabelsComponents {
     {
         Registry.register(Registries.DATA_COMPONENT_TYPE, Identifier.of(ItemLabels.ID, "labels"), LABELS);
 
-        /*? if >=1.21.6 {*/
-        /*ComponentTooltipAppenderRegistry.addFirst(LABELS);
-        *//*?}*/
+        //? if >=1.21.6
+        /*ComponentTooltipAppenderRegistry.addFirst(LABELS);*/
     }
 }
