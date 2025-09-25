@@ -66,7 +66,10 @@ public class LabelItem extends Item
 
             otherSlot.insertStack(toInsert);
             otherSlot.markDirty();
-            thisStack.set(ItemLabelsComponents.LABELS, labels);
+            if(labels.isEmpty())
+                thisStack.remove(ItemLabelsComponents.LABELS);
+            else
+                thisStack.set(ItemLabelsComponents.LABELS, labels);
             return true;
         }
         else if(!otherSlot.getStack().isIn(ItemLabelsItemTags.FORBID_LABELS))
