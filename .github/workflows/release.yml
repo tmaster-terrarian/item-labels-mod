@@ -14,4 +14,4 @@ jobs:
       - uses: actions/checkout@v4
       - run: ./gradlew build publishMods
         env:
-          MODRINTH_API_KEY: ${{ secrets.MODRINTH_TOKEN }}
+          MODRINTH_API_KEY: ${{ secrets.MODRINTH_API_KEY }}
