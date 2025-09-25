@@ -33,6 +33,20 @@ public class LabelItem extends Item
             return false;
 
         LabelsComponent labels = thisStack.get(ItemLabelsComponents.LABELS);
+
+        if(otherSlot.getStack().isOf(Items.NAME_TAG))
+        {
+            if(labels == null)
+                labels = new LabelsComponent(DefaultedList.ofSize(0, Text.empty()));
+            // absorb name tag
+            labels.push(otherSlot.takeStack(1));
+            if(!(player instanceof ServerPlayerEntity))
+                player.playSound(SoundEvents.ITEM_BUNDLE_INSERT);
+            otherSlot.markDirty();
+            thisStack.set(ItemLabelsComponents.LABELS, labels);
+            return true;
+        }
+
         if(labels == null || labels.isEmpty())
             return false;
 
