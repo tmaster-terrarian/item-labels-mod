@@ -11,10 +11,10 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "dev.bscit.item_labels.client.MainClient"
+      "dev.bscit.item_labels.client.ItemLabelsClient"
     ],
     "main": [
-      "dev.bscit.item_labels.Main"
+      "dev.bscit.item_labels.ItemLabels"
     ]
   },
   "mixins": [

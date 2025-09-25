@@ -2,9 +2,11 @@ package dev.bscit.item_labels.client;
 
 import net.fabricmc.api.ClientModInitializer;
 
-public class MainClient implements ClientModInitializer {
-
+public class ItemLabelsClient implements ClientModInitializer
+{
     @Override
-    public void onInitializeClient() {
+    public void onInitializeClient()
+    {
+
     }
 }

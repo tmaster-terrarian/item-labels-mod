@@ -1,0 +1,14 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        " P",
+        "R "
+    ],
+    "key": {
+        "P": {"item": "minecraft:paper"},
+        "R": {"item": "minecraft:clay_ball"}
+    },
+    "result": {
+        "id": "item_labels:eraser"
+    }
+}

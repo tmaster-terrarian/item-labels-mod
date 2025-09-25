@@ -1,9 +1,11 @@
 plugins {
     id 'fabric-loom' version '1.11-SNAPSHOT'
     id 'maven-publish'
+    id "me.modmuss50.mod-publish-plugin" version "0.6.3"
+    id "dev.kikugie.stonecutter"
 }
 
-version = project.mod_version
+version = "${project.mod_version}+${project.minecraft_version}"
 group = project.maven_group
 
 base {
@@ -85,5 +87,27 @@ publishing {
         // Notice: This block does NOT have the same function as the block in the top level.
         // The repositories here will be used for publishing your artifact, not for
         // retrieving dependencies.
+    }
+}
+
+if (project.gradle.getProperties().get("modrinth_token") != null) {
+    publishMods {
+        File changelogFile = new File("CHANGELOG.md")
+
+        file = remapJar.archiveFile
+        changelog = changelogFile.exists() ? changelogFile.text : ""
+        type = STABLE
+        displayName = "${project.mod_name} ${project.version}"
+        modLoaders.add("fabric")
+
+        modrinth {
+            accessToken = providers.gradleProperty("modrinth_token").get()
+            projectId = "s9XXQTOb"
+            minecraftVersionRange {
+                start = project.minecraft_version
+                end = project.minecraft_version_max
+            }
+            requires("fabric-api")
+        }
     }
 }
