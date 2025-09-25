@@ -124,7 +124,6 @@ public class LabelsComponent implements TooltipAppender
 
     public void push(ItemStack stack)
     {
-        ItemLabels.LOGGER.info("{}: item {} applied to label", ItemLabels.ID, stack.getName().toString());
         labels.add(labels.size(), stack.getName());
     }
 
