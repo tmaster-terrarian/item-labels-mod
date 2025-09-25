@@ -43,8 +43,14 @@ processResources {
     }
 }
 
+stonecutter {
+    getFilters().include("src/main/resources/item_labels.mixins.json")
+}
+
 loom {
-    accessWidenerPath = file("src/main/resources/item_labels.accesswidener")
+    if (stonecutter.eval(stonecutter.current.version, "<1.21.6")) {
+        accessWidenerPath = file("src/main/resources/item_labels.accesswidener")
+    }
 
     runConfigs.all {
         ideConfigGenerated(true) // Run configurations are not created for subprojects by default
