@@ -43,6 +43,15 @@ processResources {
     }
 }
 
+loom {
+    accessWidenerPath = file("src/main/resources/item_labels.accesswidener")
+
+    runConfigs.all {
+        ideConfigGenerated(true) // Run configurations are not created for subprojects by default
+        runDir = "../../run" // Use a shared run folder and create separate worlds
+    }
+}
+
 def targetJavaVersion = 21
 tasks.withType(JavaCompile).configureEach {
     // ensure that the encoding is set to UTF-8, no matter what the system default is

@@ -27,7 +27,7 @@ public class LabelsComponent implements TooltipAppender
 {
     private static final int MAX_LABELS = 256;
 
-    private static final Text tooltipTemplate = Text.literal("  ");
+    private static final Text tooltipTemplate = Text.literal("- ").formatted(Formatting.GRAY);
     private static final Text tooltipTitleTemplate = Text.translatable("item_labels.tooltip.labels").append(":").formatted(Formatting.GRAY);
 
     public static final Codec<LabelsComponent> CODEC = RecordCodecBuilder.create(
@@ -212,7 +212,7 @@ public class LabelsComponent implements TooltipAppender
             if(col == TextColor.fromFormatting(Formatting.RESET))
                 col = TextColor.fromFormatting(Formatting.YELLOW);
             final TextColor c = col;
-            tooltipConsumer.accept(tooltipTemplate.copy().styled(style -> style.withColor(c)).append(txt));
+            tooltipConsumer.accept(tooltipTemplate.copy().append(txt.copy().styled(style -> style.withColor(c))));
         }
     }
 }

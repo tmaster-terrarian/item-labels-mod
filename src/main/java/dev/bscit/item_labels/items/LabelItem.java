@@ -14,7 +14,11 @@ import net.minecraft.text.Text;
 import net.minecraft.util.ClickType;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
+/*? if <1.21.2 {*/
 import net.minecraft.util.TypedActionResult;
+/*?} else {*/
+/*import net.minecraft.util.ActionResult;
+*//*?}*/
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -177,7 +181,11 @@ public class LabelItem extends Item
     }
 
     @Override
+    /*? if <1.21.2 {*/
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand)
+    /*?} else {*/
+    /*public ActionResult use(World world, PlayerEntity user, Hand hand)
+    *//*?}*/
     {
         ItemStack itemStack = user.getStackInHand(hand);
 
@@ -196,6 +204,10 @@ public class LabelItem extends Item
 
         itemStack.remove(ItemLabelsComponents.LABELS);
 
+        /*? if <1.21.2 {*/
         return TypedActionResult.success(itemStack);
+        /*?} else {*/
+        /*return ActionResult.SUCCESS;
+        *//*?}*/
     }
 }
