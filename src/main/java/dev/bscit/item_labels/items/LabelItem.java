@@ -202,8 +202,13 @@ public class LabelItem extends Item
         while(!labels.isEmpty())
             user.getInventory().offerOrDrop(labels.pop());
 
+        /*? if <1.21.9 {*/
         if(world.isClient)
             user.playSound(SoundEvents.ITEM_BUNDLE_DROP_CONTENTS);
+        /*?} else {*/
+        /*if(world.isClient())
+            user.playSound(SoundEvents.ITEM_BUNDLE_DROP_CONTENTS);
+        *//*?}*/
 
         itemStack.remove(ItemLabelsComponents.LABELS);
 
